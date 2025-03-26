@@ -118,3 +118,13 @@ p {
         margin-top: 10px;
     }
 }
+.theme-button {
+    background: none; /* Supprime l'arrière-plan du bouton */
+    border: none; /* Supprime la bordure */
+    padding: 0; /* Supprime les marges internes */
+    cursor: pointer; /* Change le curseur pour indiquer que c'est cliquable */
+}
+
+.theme-button img {
+    display: block; /* Assure que l'image est affichée correctement */
+}

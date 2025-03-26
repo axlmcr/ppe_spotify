@@ -68,7 +68,7 @@ $theme_icon = ($theme === 'dark') ? 'assets/images/lune.png' : 'assets/images/so
             <p>Bienvenue, <?php echo htmlspecialchars($user['username']); ?> !</p>
             <form method="POST" style="display: inline;">
                 <button type="submit" name="change_theme">
-                        <img src="<?= $theme_icon ?>" alt="Changer le thème" style="width: 24px; height: 24px;">
+                    <img src="<?= $theme_icon ?>" alt="Changer le thème" style="width: 24px; height: 24px;">
                 </button>
             </form>
             <a class ="logout" href="../src/logout.php">Déconnexion</a>
