@@ -44,6 +44,9 @@ if (!$user) {
 }
 
 $theme = $user['theme'] ?? 'dark'; // Par défaut, le thème est 'dark'
+
+
+$theme_icon = ($theme === 'dark') ? 'asset/images/lune.png' : 'asset/images/soleil.png';
 ?>
 
 
@@ -65,7 +68,7 @@ $theme = $user['theme'] ?? 'dark'; // Par défaut, le thème est 'dark'
             <p>Bienvenue, <?php echo htmlspecialchars($user['username']); ?> !</p>
             <form method="POST" style="display: inline;">
                 <button type="submit" name="change_theme">
-                    <img src = "asset/images/lune.png">
+                        <img src="<?= $theme_icon ?>" alt="Changer le thème" style="width: 24px; height: 24px;">
                 </button>
             </form>
             <a class ="logout" href="../src/logout.php">Déconnexion</a>
