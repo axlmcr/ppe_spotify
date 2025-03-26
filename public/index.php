@@ -46,7 +46,7 @@ if (!$user) {
 $theme = $user['theme'] ?? 'dark'; // Par défaut, le thème est 'dark'
 
 
-$theme_icon = ($theme === 'dark') ? 'asset/images/lune.png' : 'asset/images/soleil.png';
+$theme_icon = ($theme === 'dark') ? 'assets/images/lune.png' : 'assets/images/soleil.png';
 ?>
 
 
