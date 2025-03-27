@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content ="width, intinal-scale=1.0">
         <title>MusicWave</title>
-        <link rel ="stylesheet" href="assets/stylesheet.css">
+        <link rel ="stylesheet" href="assets/css/stylesheet.css">
     </head>
     <body>
         <header>
