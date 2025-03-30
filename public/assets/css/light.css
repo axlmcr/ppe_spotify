@@ -1,130 +1,133 @@
-/* Importation de la police Google Fonts */
+/* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-/* Reset général */
+/* General Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
+    box-sizing: border-box; /* Include padding and border in element's total width/height */
+    font-family: 'Poppins', sans-serif; /* Set the default font */
 }
 
-/* Couleurs principales */
+/* Primary Colors */
 :root {
-    --primary-color: #1DB954;  /* Vert Spotify */
-    --dark-bg: #787474;
-    --light-bg: #e8e5e5;
-    --text-color: #191919;
-    --secondary-text: #080808;
+    --primary-color: #1DB954;  /* Spotify green */
+    --dark-bg: #787474; /* Dark background color */
+    --light-bg: #e8e5e5; /* Light background color */
+    --text-color: #191919; /* Main text color */
+    --secondary-text: #080808; /* Secondary text color */
 }
 
-/* Header */
+/* Header Styling */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: var(--light-bg);
-    box-shadow: 0 4px 8px rgb(179, 175, 175);
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space out elements */
+    align-items: center; /* Align items vertically */
+    padding: 20px; /* Add padding around the header */
+    background-color: var(--light-bg); /* Light background for the header */
+    box-shadow: 0 4px 8px rgb(179, 175, 175); /* Add shadow for depth */
 }
 
 header h1 {
-    font-size: 24px;
-    font-weight: 600;
-    color: var(--primary-color);
+    font-size: 24px; /* Set font size */
+    font-weight: 600; /* Set font weight */
+    color: var(--primary-color); /* Use primary color for the title */
 }
 
+/* Navigation Links */
 nav a {
-    color: var(--secondary-text);
-    text-decoration: none;
-    margin: 0 15px;
-    font-weight: 400;
-    transition: color 0.3s ease-in-out;
+    color: var(--secondary-text); /* Set link color */
+    text-decoration: none; /* Remove underline */
+    margin: 0 15px; /* Add spacing between links */
+    font-weight: 400; /* Set font weight */
+    transition: color 0.3s ease-in-out; /* Smooth color transition on hover */
 }
 
 nav a:hover {
-    color: var(--primary-color);
+    color: var(--primary-color); /* Change color on hover */
 }
 
-/* Section principale */
+/* Main Section Styling */
 section {
-    text-align: center;
-    margin-top: 50px;
+    text-align: center; /* Center-align text */
+    margin-top: 50px; /* Add spacing at the top */
 }
 
 h2 {
-    font-size: 32px;
-    font-weight: 600;
+    font-size: 32px; /* Set font size for headings */
+    font-weight: 600; /* Set font weight */
 }
 
 p {
-    font-size: 18px;
-    color: var(--secondary-text);
-    margin-top: 10px;
+    font-size: 18px; /* Set font size for paragraphs */
+    color: var(--secondary-text); /* Use secondary text color */
+    margin-top: 10px; /* Add spacing above paragraphs */
 }
 
-/* Bouton principal */
+/* Primary Button Styling */
 .btn {
-    display: inline-block;
-    padding: 12px 24px;
-    margin-top: 20px;
-    background-color: var(--primary-color);
-    color: var(--dark-bg);
-    font-size: 16px;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 50px;
-    transition: background 0.3s ease-in-out;
+    display: inline-block; /* Make the button inline */
+    padding: 12px 24px; /* Add padding inside the button */
+    margin-top: 20px; /* Add spacing above the button */
+    background-color: var(--primary-color); /* Use primary color for the button */
+    color: var(--dark-bg); /* Set text color */
+    font-size: 16px; /* Set font size */
+    font-weight: 600; /* Set font weight */
+    text-decoration: none; /* Remove underline */
+    border-radius: 50px; /* Round the button corners */
+    transition: background 0.3s ease-in-out; /* Smooth background transition on hover */
 }
 
 .btn:hover {
-    background-color: #18a64a;
+    background-color: #18a64a; /* Change background color on hover */
 }
 
-/* Lecteur audio */
+/* Audio Player Styling */
 .audio-player {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--light-bg);
-    padding: 15px;
-    margin: 50px auto;
-    width: 90%;
-    max-width: 500px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center-align content */
+    align-items: center; /* Align items vertically */
+    background-color: var(--light-bg); /* Use light background */
+    padding: 15px; /* Add padding inside the player */
+    margin: 50px auto; /* Center the player and add spacing */
+    width: 90%; /* Set width to 90% of the container */
+    max-width: 500px; /* Set maximum width */
+    border-radius: 10px; /* Round the corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
 }
 
 .audio-player button {
-    background: none;
-    border: none;
-    color: var(--primary-color);
-    font-size: 24px;
-    cursor: pointer;
-    transition: color 0.3s;
+    background: none; /* Remove button background */
+    border: none; /* Remove button border */
+    color: var(--primary-color); /* Use primary color for icons */
+    font-size: 24px; /* Set icon size */
+    cursor: pointer; /* Change cursor to pointer */
+    transition: color 0.3s; /* Smooth color transition on hover */
 }
 
 .audio-player button:hover {
-    color: #18a64a;
+    color: #18a64a; /* Change icon color on hover */
 }
 
-/* Responsivité */
+/* Responsiveness for smaller screens */
 @media (max-width: 768px) {
     header {
-        flex-direction: column;
-        text-align: center;
+        flex-direction: column; /* Stack header elements vertically */
+        text-align: center; /* Center-align text */
     }
     nav {
-        margin-top: 10px;
+        margin-top: 10px; /* Add spacing above navigation links */
     }
 }
+
+/* Theme Button Styling */
 .theme-button {
-    background: none; /* Supprime l'arrière-plan du bouton */
-    border: none; /* Supprime la bordure */
-    padding: 0; /* Supprime les marges internes */
-    cursor: pointer; /* Change le curseur pour indiquer que c'est cliquable */
+    background: none; /* Remove button background */
+    border: none; /* Remove button border */
+    padding: 0; /* Remove padding */
+    cursor: pointer; /* Change cursor to pointer */
 }
 
 .theme-button img {
-    display: block; /* Assure que l'image est affichée correctement */
+    display: block; /* Ensure the image is displayed correctly */
 }

@@ -1,6 +1,10 @@
 <?php
-session_start();
-session_destroy(); // Détruit toutes les données de la session
-header("Location: ../public/login_index.php"); // Redirige vers la page de connexion
-exit();
+session_start(); // Start the session
+
+// Destroy all session data
+session_destroy(); 
+
+// Redirect the user to the login page
+header("Location: ../public/login_index.php"); 
+exit(); // Ensure no further code is executed
 ?>

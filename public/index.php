@@ -1,51 +1,53 @@
 <?php
-session_start(); // Démarre la session
+session_start(); // Start the session
 
+// Check if the user is logged in
 if (!isset($_SESSION['user_id'])) {
-    // Si l'utilisateur n'est pas connecté, redirigez-le vers la page de connexion
+    // If the user is not logged in, redirect to the login page
     header("Location: login_index.php");
     exit();
 }
 
-include("../config/db.php");
+include("../config/db.php"); // Include the database configuration file
 
-// Récupère les informations de l'utilisateur connecté
+// Retrieve the logged-in user's information
 $user_id = $_SESSION['user_id'];
 
-// Si le formulaire pour changer le thème est soumis
+// If the form to change the theme is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['change_theme'])) {
-    // Récupère le thème actuel de l'utilisateur
+    // Get the current theme of the user
     $stmt = $pdo->prepare("SELECT theme FROM users WHERE user_id = ?");
     $stmt->execute([$user_id]);
     $user = $stmt->fetch();
 
-    // Détermine le nouveau thème (bascule entre 'dark' et 'light')
+    // Determine the new theme (toggle between 'dark' and 'light')
     $new_theme = ($user['theme'] === 'dark') ? 'light' : 'dark';
 
-    // Met à jour le thème dans la base de données
+    // Update the theme in the database
     $stmt = $pdo->prepare("UPDATE users SET theme = ? WHERE user_id = ?");
     $stmt->execute([$new_theme, $user_id]);
 
-    // Recharge la page pour appliquer le nouveau thème
+    // Reload the page to apply the new theme
     header("Location: index.php");
     exit();
 }
 
-// Récupère les informations de l'utilisateur connecté
+// Retrieve the logged-in user's information again
 $stmt = $pdo->prepare("SELECT username, theme FROM users WHERE user_id = ?");
 $stmt->execute([$user_id]);
 $user = $stmt->fetch();
 
 if (!$user) {
-    // Si l'utilisateur n'existe pas, détruisez la session et redirigez
+    // If the user does not exist, destroy the session and redirect to the login page
     session_destroy();
     header("Location: login_index.php");
     exit();
 }
 
-$theme = $user['theme'] ?? 'dark'; // Par défaut, le thème est 'dark'
+// Get the user's theme or set the default to 'dark'
+$theme = $user['theme'] ?? 'dark';
 
-
+// Determine the icon for the theme toggle button
 $theme_icon = ($theme === 'dark') ? 'assets/images/lune.png' : 'assets/images/soleil.png';
 ?>
 
