@@ -1,0 +1,376 @@
+/* dark.css - Version finalisée et optimisée */
+:root {
+    /* Couleurs principales */
+    --primary: #4361ee;
+    --primary-dark: #3a0ca3;
+    --secondary: #f72585;
+    --primary-color: #6495ed; /* Alias pour compatibilité */
+
+    /* Arrière-plans */
+    --dark: #0f0f0f;
+    --darker: #080808;
+    --dark-bg: var(--dark); /* Alias */
+    --darker-bg: var(--darker); /* Alias */
+
+    /* Textes */
+    --text-light: #f8f9fa;
+    --light: var(--text-light); /* Alias */
+    --text-muted: rgba(255, 255, 255, 0.7);
+
+    /* Effets glassmorphism */
+    --glass: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+
+    /* Dégradés */
+    --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+    --gradient-dark: linear-gradient(135deg, var(--primary-dark), #7209b7);
+
+    /* Dimensions */
+    --border-radius: 12px;
+    --transition-speed: 0.4s;
+}
+
+/* Thème clair */
+[data-theme="light"] {
+    --dark: #f8f9fa;
+    --darker: #e9ecef;
+    --light: #212529;
+    --glass: rgba(0, 0, 0, 0.05);
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --text-muted: rgba(0, 0, 0, 0.6);
+}
+
+/* Base */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--darker);
+    color: var(--light);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Navigation */
+.navbar {
+    background: rgba(15, 15, 15, 0.9) !important;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.5s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.navbar.scrolled {
+    background: rgba(8, 8, 8, 0.95) !important;
+}
+
+.navbar-brand {
+    font-weight: 800;
+    font-size: 1.8rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 1px;
+}
+
+.nav-link {
+    position: relative;
+    margin: 0 0.5rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    transition: all var(--transition-speed) cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nav-link:hover {
+    color: var(--primary) !important;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: var(--gradient);
+    transition: width var(--transition-speed) cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary);
+    transition: transform 0.3s ease;
+}
+
+.user-avatar:hover {
+    transform: scale(1.1);
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--light);
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: rotate(15deg);
+}
+
+/* Boutons */
+.btn-primary, .btn-grad {
+    background: var(--gradient);
+    border: none;
+    color: white;
+    padding: 0.75rem 2.5rem;
+    font-weight: 600;
+    border-radius: 50px;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+}
+
+.btn-primary::before, .btn-grad::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-dark);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-primary:hover, .btn-grad:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(67, 97, 238, 0.4);
+}
+
+.btn-primary:hover::before, .btn-grad:hover::before {
+    opacity: 1;
+}
+
+/* Cartes */
+.music-card,
+.artist-card,
+.album-card,
+.single-card {
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    border-radius: var(--border-radius);
+    transition: all var(--transition-speed);
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+    height: 100%;
+}
+
+.music-card:hover,
+.artist-card:hover,
+.album-card:hover,
+.single-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(100, 149, 237, 0.3);
+    border-color: rgba(100, 149, 237, 0.5);
+}
+
+.music-card {
+    position: relative;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.music-card img {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin: 0 auto 1rem;
+    border: 3px solid var(--primary);
+    transition: transform 0.5s ease;
+}
+
+.artist-card img {
+    border: 3px solid var(--secondary);
+}
+
+/* Barres de progression */
+.progress {
+    height: 6px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    margin: 1rem 0;
+}
+
+.progress-bar {
+    background: var(--gradient);
+    transition: width 1s ease-in-out;
+}
+
+/* Sections */
+section {
+    padding: 3rem 0;
+}
+
+section h2 {
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 3px;
+    bottom: -10px;
+    left: 25%;
+    background: var(--gradient);
+    border-radius: 3px;
+}
+
+/* Player */
+.player-controls .btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.player-controls .btn:hover {
+    transform: scale(1.1);
+}
+
+/* Pied de page */
+.footer {
+    background: var(--darker);
+    padding: 3rem 0;
+    margin-top: 4rem;
+    border-top: 1px solid var(--glass-border);
+}
+
+.footer a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: all var(--transition-speed);
+    position: relative;
+}
+
+.footer a:hover {
+    color: var(--secondary);
+}
+
+.footer a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background: var(--secondary);
+    transition: width var(--transition-speed);
+}
+
+.footer a:hover::after {
+    width: 100%;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseOpacity {
+    0% { opacity: 0.1; }
+    100% { opacity: 0.2; }
+}
+
+.floating {
+    animation: floating 6s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    section {
+        padding: 2rem 0;
+    }
+
+    .navbar {
+        padding: 0.8rem 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .btn-primary, .btn-grad {
+        padding: 0.6rem 1.8rem;
+        font-size: 0.9rem;
+    }
+
+    .music-card,
+    .artist-card,
+    .album-card,
+    .single-card {
+        margin-bottom: 1.5rem;
+    }
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="b5e7a30d-906b-4a82-84e2-e7eaa0ef0a03" name="Spotify" url="http://localhost">
+        <fileTransfer mountedRoot="J:\ProjetSpotifyLike" accessType="MOUNT" port="0" />
+      </webServer>
+    </option>
+  </component>
+</project>
