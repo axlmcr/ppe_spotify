@@ -13,6 +13,6 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^5.1.0",
-    "youtube-search-api": "^1.2.2"
+    "youtube-search-api": "^2.0.0"
   }
 }
